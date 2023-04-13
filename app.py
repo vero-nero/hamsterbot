@@ -90,8 +90,8 @@ async def cool(ctx):
 
 @cool.command(name='bot')
 async def _bot(ctx):
-    """Is the bot cool?"""
-    await ctx.send('Yes, the bot is cool.')
+    """Is the racism cool?"""
+    await ctx.send('Yes, racism is cool.')
 
 @bot.command()
 async def pinging(ctx, member: discord.Member):
