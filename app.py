@@ -1,3 +1,4 @@
+import json
 import discord
 from discord.ext import commands
 import random
@@ -95,5 +96,7 @@ async def _bot(ctx):
 @bot.command()
 async def pinging(ctx, member: discord.Member):
         await ctx.send(f'Pinging {member.mention}...')
-
-bot.run('token')
+#read the token from the bottoken.json and run the bot
+with open('bottoken.json') as f:
+    bottoken = json.load(f)
+bot.run(bottoken['token'])
