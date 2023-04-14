@@ -12,7 +12,7 @@ intents = discord.Intents.default()
 intents.members = True
 intents.message_content = True
 
-bot = commands.Bot(command_prefix='.', description=description, intents=intents)
+bot = commands.Bot(command_prefix='/', description=description, intents=intents)
 
 
 @bot.event
@@ -29,6 +29,21 @@ async def greet(ctx):
 async def add(ctx, left: int, right: int):
     """Adds two numbers together."""
     await ctx.send(left + right)
+@bot.command()
+async def sub(ctx, left: int, right: int):
+    """Adds two numbers together."""
+    await ctx.send(left - right)
+@bot.command()
+async def mult(ctx, left: int, right: int):
+    """Adds two numbers together."""
+    await ctx.send(left * right)
+@bot.command()
+async def add(ctx, left: int, right: int):
+    """Adds two numbers together."""
+    if left == 0 or right == 0:
+        await ctx.send("Hurenshohn")
+    else:
+        await ctx.send(left / right)
 
 
 @bot.command()
@@ -60,7 +75,7 @@ async def repeat(ctx, times: int, content='repeating...'):
         await ctx.send(content)
 
 
-@bot.command()
+@bot.add_listener()
 async def joined(ctx, member: discord.Member):
     """Says when a member joined."""
     #put the following ascii in a variable⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ 
@@ -91,7 +106,7 @@ async def cool(ctx):
 
 @cool.command(name='bot')
 async def _bot(ctx):
-    """Is the racism cool?"""
+    """Is racism cool?"""
     await ctx.send('Yes, racism is cool.')
 
 @bot.command()
