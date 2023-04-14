@@ -39,7 +39,6 @@ async def on_member_join(member):
         serverID = serverJson['id']
     print(serverID)
     channel = await bot.fetch_channel(serverID) 
-    print(channel)
     await channel.send(amongsus)
 
 @bot.command()
