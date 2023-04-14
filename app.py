@@ -30,14 +30,14 @@ async def add(ctx, left: int, right: int):
     await ctx.send(left + right)
 @bot.command()
 async def sub(ctx, left: int, right: int):
-    """Adds two numbers together."""
+    """subs two numbers together."""
     await ctx.send(left - right)
 @bot.command()
 async def mult(ctx, left: int, right: int):
-    """Adds two numbers together."""
+    """mults two numbers together."""
     await ctx.send(left * right)
 @bot.command()
-async def add(ctx, left: int, right: int):
+async def div(ctx, left: int, right: int):
     """Adds two numbers together."""
     if left == 0 or right == 0:
         await ctx.send("Hurenshohn")
