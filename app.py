@@ -3,7 +3,6 @@ import json
 import discord
 from discord.ext import commands
 import random
-
 description = '''An example bot to showcase the discord.ext.commands extension
 module.
 There are a number of utility commands being showcased here.'''
@@ -12,7 +11,7 @@ intents = discord.Intents.default()
 intents.members = True
 intents.message_content = True
 
-bot = commands.Bot(command_prefix='/', description=description, intents=intents)
+bot = commands.Bot(command_prefix='>', description=description, intents=intents)
 
 
 @bot.event
@@ -64,6 +63,25 @@ async def choose(ctx, *choices: str):
     """Chooses between multiple choices."""
     await ctx.send(random.choice(choices))
 
+@bot.command(description='For when you wanna settle the score some other way')
+async def randomize(ctx, *choices: str):
+    """Chooses between multiple choices."""
+    #check if "r6" is in the list
+    if "r6" in choices:
+        await ctx.send("r6")
+    else:
+        await ctx.send(random.choice(choices))
+
+@bot.command(description='gaydar')
+async def gaydar(ctx, *choices: str):
+    """Chooses between multiple options."""
+    #check if "r6" is in the list
+    if "simon" in choices:
+        await ctx.send("simon")
+    elif random.int(0, 100) > 70:
+        await ctx.send(random.choice(choices))
+    else:
+        await ctx.send("none of the above")
 
 @bot.command()
 async def repeat(ctx, times: int, content='repeating...'):
@@ -75,10 +93,10 @@ async def repeat(ctx, times: int, content='repeating...'):
         await ctx.send(content)
 
 
-@bot.add_listener()
-async def joined(ctx, member: discord.Member):
+@bot.event()
+async def on_member_join(ctx, member):
     """Says when a member joined."""
-    #put the following ascii in a variable⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ 
+    #sus⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ 
     amongsus ='''   
         ⠀⠀⠀⠀⠀⠀⠀⣠⣤⣤⣤⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ 
         ⠀⠀⠀⠀⠀⢰⡿⠋⠁⠀⠀⠈⠉⠙⠻⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ 
@@ -105,13 +123,14 @@ async def cool(ctx):
 
 
 @cool.command(name='bot')
-async def _bot(ctx):
+async def isracism(ctx):
     """Is racism cool?"""
     await ctx.send('Yes, racism is cool.')
 
 @bot.command()
 async def pinging(ctx, member: discord.Member):
         await ctx.send(f'Pinging {member.mention}...')
+
 #read the token from the bottoken.json and run the bot
 with open('bottoken.json') as f:
     bottoken = json.load(f)
