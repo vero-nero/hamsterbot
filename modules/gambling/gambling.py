@@ -19,13 +19,13 @@ async def gamble(ctx, amount: int):
                 if random.randint(0, 100) > 50:
                     # if they win add the amount to their balance
                     gamblingJson["users"][str(ctx.author.id)]["balance"] += amount
-                    with open('gambling.json', 'w') as outfile:
+                    with open('modules\gambling\gambling.json', 'w') as outfile:
                         json.dump(gamblingJson, outfile)
                     await ctx.send(f"You won {amount}!")
                 else:
                     # if they lose remove the amount from their balance
                     gamblingJson["users"][str(ctx.author.id)]["balance"] -= amount
-                    with open('gambling.json', 'w') as outfile:
+                    with open('modules\gambling\gambling.json', 'w') as outfile:
                         json.dump(gamblingJson, outfile)
                     await ctx.send(f"You lost {amount}!")
             else:
@@ -34,6 +34,6 @@ async def gamble(ctx, amount: int):
         else:
             # if the user hasn't gambled before add them to the json with a balance of 100
             gamblingJson["users"][str(ctx.author.id)] = {"balance": 100}
-            with open('gambling.json', 'w') as outfile:
+            with open('modules\gambling\gambling.json', 'w') as outfile:
                 json.dump(gamblingJson, outfile)
             await ctx.send(f"Welcome, your balance is at 100!")

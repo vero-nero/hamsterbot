@@ -2,20 +2,14 @@ import json
 import discord
 from discord.ext import commands
 import requests
-
-from modules.Quizzes.increase_points import increase_points
+from modules.quizes.increase_points import increase_points
 
 description = '''The Best Hamster'''
-
 intents = discord.Intents.default()
 intents.members = True
 intents.message_content = True
 
 bot = commands.Bot(command_prefix='>', description=description, intents=intents)
-
-@bot.event
-async def on_ready():
-    print(f'{bot.user.name} is ready')
 
 @bot.command()
 async def quizTof(ctx):
@@ -45,8 +39,3 @@ async def quizTof(ctx):
 
     if result:
         increase_points(10, ctx.author.id)
-
-#read the token from the bottoken.json and run the bot
-with open('bottoken.json') as f:
-    bottoken = json.load(f)
-bot.run(bottoken['token'])

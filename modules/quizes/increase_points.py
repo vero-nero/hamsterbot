@@ -1,6 +1,6 @@
 import json
 
-def increase_points(points, user_id):
+async def increase_points(points, user_id):
     #increase points in gambling.json by points for user
     #if user doesn't exist, create a new entry for them
     #if user exists, add points to their current points

@@ -2,8 +2,8 @@
 import json
 import discord
 from discord.ext import commands
-from modules.Quizzes.general import quizTR
-from modules.Quizzes.theoffice import quizTof
+from modules.quizes.general import quizTR
+from modules.quizes.theoffice import quizTof
 from modules.gambling.gambling import gamble
 from modules.greets.greets import greet
 from modules.greets.newmember import on_member_join
@@ -11,6 +11,7 @@ from modules.help.help import listcommands
 from modules.calculator.calculator import add, sub, mul, div
 from modules.memes.gaydar import gaydar
 from modules.memes.racism import cool
+from modules.utils.balance import balance
 from modules.utils.choosestuff import choose, randomize, roll
 from modules.utils.pinging import pinging
 from modules.utils.spammer import repeat
@@ -43,6 +44,7 @@ bot.add_command(roll)
 bot.add_command(choose)
 bot.add_command(randomize)
 bot.add_command(repeat)
+bot.add_command(balance)
 
 #read the token from the bottoken.json and run the bot
 with open('bottoken.json') as f:
