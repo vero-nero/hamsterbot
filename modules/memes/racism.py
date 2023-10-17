@@ -18,4 +18,4 @@ async def cool(ctx):
 @cool.command(name='racism')
 async def isracism(ctx):
     """Is racism cool?"""
-    await ctx.send('Yes, racism is cool.')
+    await ctx.send('NO, racism isn"t cool.')
